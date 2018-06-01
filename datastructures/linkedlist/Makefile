@@ -1,5 +1,6 @@
 CC=g++
 
+#TODO NEED TO IMPLEMENT A HEADER FILE 
 all: linkedlist.x
 
 linkedlist.x: linkedlist.cpp
