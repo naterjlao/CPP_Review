@@ -1,16 +1,20 @@
 #include "../imports.h"
+#include "bst.h"
 using namespace std;
 
-template <class T>
-bool equal(T a, T b) {
-	return a == b;
-}
-
 int main() {
-	cout << equal(1,2) << endl;
-	cout << equal('a','b') << endl;
-	cout << equal("Jake", "JAke") << endl;
-	cout << equal("f","f") << endl;
+	BST<int> t;
+
+	t.insert(5);
+	t.insert(9);
+	t.insert(1);
+	t.insert(4);
+
+	t.print();
+
+	cout << t.search(8) << endl;
+	cout << t.search(1) << endl;
+	cout << t.size() << endl;
 
 	return 0;
 }
