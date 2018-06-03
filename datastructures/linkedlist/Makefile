@@ -1,11 +1,12 @@
 CC=g++
 
-#TODO NEED TO IMPLEMENT A HEADER FILE 
-all: linkedlist.x
+all: test.x
 
-linkedlist.x: linkedlist.cpp
-	${CC} linkedlist.cpp -o linkedlist.x
+linkedlist.o: ../imports.h linkedlist.h linkedlist.cpp
+	${CC} -c linkedlist.cpp
 
+test.x: ../imports.h linkedlist.o test.cpp
+	${CC} test.cpp linkedlist.o -o test.x
 
 clean:
-	rm *.x
+	rm *.x *.o
