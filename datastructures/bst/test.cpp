@@ -19,6 +19,10 @@ int main() {
 
 	t.print();
 	t.remove(5);
+	t.remove(9);
+	t.remove(4);
+	t.remove(0);
+	t.remove(1);
 
 	t.print();
 
