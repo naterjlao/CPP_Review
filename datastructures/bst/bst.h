@@ -9,6 +9,7 @@ private:
 		bool search(T key);
 		Node* insert(T key);
 		Node* remove(T key, bool *flag);
+		Node* deleteLeftmost(T *value);
 		int size();
 		void print();
 	};

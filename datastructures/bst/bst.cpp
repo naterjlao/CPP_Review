@@ -92,6 +92,16 @@ typename BST<T>::Node* BST<T>::Node::remove(T key, bool *flag) {
 }
 
 template <class T>
+typename BST<T>::Node* BST<T>::Node::deleteLeftmost(T *value) {
+	if (this->left == NULL) {
+		*value = this->key;
+		return this->right;
+	} else {
+		this->left = this->left->deleteLeftmost(value);
+	}
+}
+
+template <class T>
 int BST<T>::Node::size() {
 	return 1 + 
 		(this->left == NULL ? 0 : this->left->size()) +
