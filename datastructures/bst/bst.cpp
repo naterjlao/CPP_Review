@@ -28,7 +28,13 @@ void BST<T>::insert(T key) {
 
 template <class T>
 bool BST<T>::remove(T key) {
-	return false;
+	if (this->root != NULL) {
+		bool status;
+		this->root = this->root->remove(key,&status);
+		return status;
+	} else
+		return false;
+
 }
 
 template <class T>
@@ -88,7 +94,27 @@ typename BST<T>::Node* BST<T>::Node::insert(T key) {
 
 template <class T>
 typename BST<T>::Node* BST<T>::Node::remove(T key, bool *flag) {
-	return NULL;
+	if (key < this->key) {
+		if (this->left != NULL)
+			this->left = this->left->remove(key,flag);
+		else
+			return NULL;
+	} else if (key > this->key) {
+		if (this->right != NULL)
+			this->right = this->right->remove(key,flag);
+		else
+			return NULL;
+	} else { // Equals case
+		if (flag != NULL)
+			*flag = true;
+		if (this->right != NULL) {
+			T replacement;
+			this->right = this->right->deleteLeftmost(&replacement);
+			this->key = replacement;
+			return this;
+		} else
+			return this->left;
+	}
 }
 
 template <class T>

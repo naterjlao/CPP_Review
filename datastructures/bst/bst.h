@@ -21,4 +21,11 @@ public:
 	bool remove(T key);
 	int size();
 	void print();
+
+	void test() {
+		T val;
+		root->deleteLeftmost(&val);
+		print();
+		std::cout << val << std::endl;
+	}
 };
